@@ -4,7 +4,7 @@ PABW DIDAR
 
 ## Pertemuan 3 — Halaman profil saya
 
-Topik halaman saya: koleksi buku di rak saya.
+Topik halaman saya: Koleksi foto perjalanan saya
 
 - My Life's Gallery
 - Deskripsi: Semua momen hidup saya
