@@ -12,7 +12,7 @@ Topik halaman saya: Koleksi foto perjalanan saya
 - Dua bagian utama: Masa Kecil, Masa Sekarang
 - Kolom tabel: Judul, Tahun, Cerita Singkat
 - Kolom form: Judul, Momen, Pesan
-- Gambar: Masa-Kecil.webp, Masa-Sekarang.wp, Foto-1.webp
+- Gambar: Masa-Kecil.webp, Masa-Sekarang.jpg, Foto-1.webp
 
 ## Catatan penggunaan AI
 

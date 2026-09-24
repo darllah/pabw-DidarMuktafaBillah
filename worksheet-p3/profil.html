@@ -3,104 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Halaman Profil</title>
+    <title>Gallery saya</title>
   </head>
   <body>
-    <header>
-      <h1>My Life's Gallery</h1>
-      <nav aria-label="Navigasi utama">
-        <ul>
-          <li><a href="#masa-kecil">Masa kecil</a></li>
-          <li><a href="#masa-sekarang">Masa sekarang</a></li>
-          <li><a href="#semua">Semua</a></li>
-        </ul>
-      </nav>
-    </header>
+    <body>
+      <header>
+        <h1>My Life's Gallery</h1>
+        <nav aria-label="Navigasi utama">
+          <ul>
+            <li><a href="#masa-kecil">Masa Kecil</a></li>
+            <li><a href="#Masa-sekarang">Masa Sekarang</a></li>
+            <li><a href="#semua">Semua</a></li>
+          </ul>
+        </nav>
+      </header>
 
-    <main>
-      <section id="masa-kecil">
-        <h2>Masa Kecil</h2>
-        <table>
-          <caption>
-            Judul tabel Anda
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Kolom 1</th>
-              <th scope="col">Kolom 2</th>
-              <th scope="col">Kolom 3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Baris 1</th>
-              <td>Isi</td>
-              <td>Isi</td>
-            </tr>
-            <section id="bagian-2">
-              <h2>Judul bagian kedua</h2>
+      <main>
+        <section id="Masa Kecil">
+          <h2>kenangan semua masa kecil saya</h2>
+          <table>
+            <caption>
+              momen didar
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Judul</th>
+                <th scope="col">Tahun</th>
+                <th scope="col">Cerita Singkat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Main</th>
+                <td>2016</td>
+                <td>jamannya belum digital</td>
+              </tr>
+              <tr>
+                <th scope="row">Tidur</th>
+                <td>2015</td>
+                <td>ketika gabut tidur</td>
+              </tr>
+              <tr>
+                <th scope="row">layangan</th>
+                <td>2019</td>
+                <td>masa-masa lulus sd banyak bermain</td>
+              </tr>
+            </tbody>
+          </table>
 
-              <form action="/simpan" method="post">
-                <p>
-                  <label for="nama-kolom">Keterangan kolom</label>
-                  <input
-                    type="text"
-                    id="nama-kolom"
-                    name="nama-kolom"
-                    required
-                  />
-                </p>
-                <p>
-                  <label for="nama-kolom">Keterangan kolom</label>
-                  <input
-                    type="text"
-                    id="nama-kolom"
-                    name="nama-kolom"
-                    required
-                  />
-                </p>
-                <p>
-                  <label for="nama-kolom">Keterangan kolom</label>
-                  <input
-                    type="text"
-                    id="nama-kolom"
-                    name="nama-kolom"
-                    required
-                  />
-                </p>
-                <button type="submit">Simpan</button>
-              </form>
-            </section>
-          </tbody>
-        </table>
-      </section>
-
-      <section id="bagian-2">
-        <h2>Judul bagian kedua</h2>
-        <section id="bagian-2">
-          <h2>Judul bagian kedua</h2>
-
-          <form action="/simpan" method="post">
-            <p>
-              <label for="nama-kolom">Keterangan kolom</label>
-              <input type="text" id="nama-kolom" name="nama-kolom" required />
-            </p>
-            <p>
-              <label for="nama-kolom">Keterangan kolom</label>
-              <input type="text" id="nama-kolom" name="nama-kolom" required />
-            </p>
-            <p>
-              <label for="nama-kolom">Keterangan kolom</label>
-              <input type="text" id="nama-kolom" name="nama-kolom" required />
-            </p>
-            <button type="submit">Simpan</button>
-          </form>
+          <figure>
+            <img
+              src="img/Masa-sekarang.jpg"
+              alt="momen saya banyak bermain dengan temamn"
+              width="640"
+              height="360"
+              loading="lazy"
+            />
+            <figcaption>Keterangan gambar Anda</figcaption>
+          </figure>
         </section>
-      </section>
-    </main>
 
-    <footer>
-      <p>DIDAR MUKTAFA BILLAH · 25523220 · 2026</p>
-    </footer>
+        <section id="bagian-2">
+          <section id="bagian-2">
+            <h2>Kenangan Sekarang</h2>
+
+            <form action="/simpan" method="post">
+              <p>
+                <label for="nama-kolom">Judul</label>
+                <input type="text" id="nama-kolom" name="nama-kolom" required />
+              </p>
+              <p>
+                <label for="nama-kolom">Momen</label>
+                <input type="text" id="nama-kolom" name="nama-kolom" required />
+              </p>
+              <p>
+                <label for="nama-kolom">Pesan</label>
+                <input type="text" id="nama-kolom" name="nama-kolom" required />
+              </p>
+              <button type="submit">Simpan</button>
+            </form>
+          </section>
+        </section>
+      </main>
+
+      <footer>
+        <p>DIDAR MUKTAFA BILLAH · 25523220 · 2026</p>
+      </footer>
+    </body>
   </body>
 </html>
