@@ -16,5 +16,4 @@ Topik halaman saya: Koleksi foto perjalanan saya
 
 ## Catatan penggunaan AI
 
-Tulis bagian mana yang dibantu AI dan bagian mana yang Anda
-kerjakan sendiri, atau tulis: tidak memakai AI.
+saya menggunakan ai pada saat ada erro di awal menyambungkan folder ke github
