@@ -7,7 +7,7 @@ PABW DIDAR
 Topik halaman saya: koleksi buku di rak saya.
 
 - My Life's Gallery
-- Deskripsi: Deskripsi satu kalimat tentang halaman ini
+- Deskripsi: Semua momen hidup saya
 - Tautan navigasi: Masa Kecil, Masa Depan, Semua
 - Dua bagian utama: Masa Kecil, Masa Sekarang
 - Kolom tabel: Judul, Tahun, Cerita Singkat
