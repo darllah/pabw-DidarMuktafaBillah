@@ -1,7 +1,3 @@
-/* =========================
-   E.1 KOLOM ISIAN DAN TOMBOL
-   ========================= */
-
 .form-kolom {
   display: flex;
   flex-direction: column;
@@ -34,18 +30,10 @@ button {
   cursor: pointer;
 }
 
-/* =========================
-   E.2 KEADAAN FOKUS
-   ========================= */
-
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
-
-/* =========================
-   E.3 VALIDASI FORM
-   ========================= */
 
 input:user-invalid,
 select:user-invalid,
