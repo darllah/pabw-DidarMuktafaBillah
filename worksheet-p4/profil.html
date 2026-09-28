@@ -3,100 +3,118 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery saya</title>
-    <!-- urutan ini yang benar: token -> dasar -> tata letak -> komponen -> tema -->
+
+    <title>Gallery Saya</title>
+
+    <!-- token -> dasar -> tata letak -> komponen -> tema -->
     <link rel="stylesheet" href="tokens.css" />
     <link rel="stylesheet" href="base.css" />
     <link rel="stylesheet" href="layout.css" />
-    <!-- <link rel="stylesheet" href="komponen.css" />
-    <link rel="stylesheet" href="tema.css" /> -->
+    <link rel="stylesheet" href="komponen.css" />
+    <!-- <link rel="stylesheet" href="tema.css" /> -->
   </head>
+
   <body>
-    <body>
-      <header>
-        <div>
-          <h1>My Life's Gallery</h1>
-          <nav aria-label="Navigasi utama">
-            <ul>
-              <li><a href="#masa-kecil">Masa Kecil</a></li>
-              <li><a href="#Masa-sekarang">Masa Sekarang</a></li>
-              <li><a href="#semua">Semua</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+    <header>
+      <div class="header-baris">
+        <h1>My Life's Gallery</h1>
 
-      <main>
-        <section id="Masa-Kecil">
-          <h2>kenangan semua masa kecil saya</h2>
-          <table>
-            <caption>
-              momen didar
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Judul</th>
-                <th scope="col">Tahun</th>
-                <th scope="col">Cerita Singkat</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Main</th>
-                <td>2016</td>
-                <td>jamannya belum digital</td>
-              </tr>
-              <tr>
-                <th scope="row">Tidur</th>
-                <td>2015</td>
-                <td>ketika gabut tidur</td>
-              </tr>
-              <tr>
-                <th scope="row">layangan</th>
-                <td>2019</td>
-                <td>masa-masa lulus sd banyak bermain</td>
-              </tr>
-            </tbody>
-          </table>
+        <nav aria-label="Navigasi utama">
+          <ul>
+            <li><a href="#masa-kecil">Masa Kecil</a></li>
+            <li><a href="#masa-sekarang">Masa Sekarang</a></li>
+            <li><a href="#semua">Semua</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-          <figure>
-            <img
-              src="Masa-sekarang.jpg"
-              alt="momen saya banyak bermain dengan temamn"
-              width="640"
-              height="360"
-              loading="lazy"
-            />
-            <figcaption>Keterangan gambar Anda</figcaption>
-          </figure>
-        </section>
+    <main id="semua">
+      <section id="masa-kecil">
+        <h2>Kenangan Semua Masa Kecil Saya</h2>
 
-        <section id="masa-sekarang">
-          <section id="bagian-2">
-            <h2>Kenangan Sekarang</h2>
+        <table>
+          <caption>
+            Momen Didar
+          </caption>
 
-            <form action="/simpan" method="post">
-              <p>
-                <label for="judul">Judul</label>
-                <input type="text" id="judul" name="kolom-judul" required />
-              </p>
-              <p>
-                <label for="momen">Momen</label>
-                <input type="text" id="momen" name="kolom-momen" required />
-              </p>
-              <p>
-                <label for="pesan">Pesan</label>
-                <input type="text" id="pesan" name="kolom-pesan" required />
-              </p>
-              <button type="submit">Simpan</button>
-            </form>
-          </section>
-        </section>
-      </main>
+          <thead>
+            <tr>
+              <th scope="col">Judul</th>
+              <th scope="col">Tahun</th>
+              <th scope="col">Cerita Singkat</th>
+            </tr>
+          </thead>
 
-      <footer>
-        <p>DIDAR MUKTAFA BILLAH · 25523220 · 2026</p>
-      </footer>
-    </body>
+          <tbody>
+            <tr>
+              <th scope="row">Main</th>
+              <td>2016</td>
+              <td>Jamannya belum digital</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Tidur</th>
+              <td>2015</td>
+              <td>Ketika gabut tidur</td>
+            </tr>
+
+            <tr>
+              <th scope="row">Layangan</th>
+              <td>2019</td>
+              <td>Masa-masa lulus SD banyak bermain</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <figure>
+          <img
+            src="Masa-sekarang.jpg"
+            alt="Momen saya banyak bermain dengan teman"
+            width="640"
+            height="360"
+            loading="lazy"
+          />
+
+          <figcaption>Keterangan gambar Anda</figcaption>
+        </figure>
+      </section>
+
+      <section id="masa-sekarang">
+        <h2>Kenangan Sekarang</h2>
+
+        <form action="/simpan" method="post">
+          <div class="form-kolom">
+            <label for="judul">Judul</label>
+
+            <input type="text" id="judul" name="kolom-judul" required />
+
+            <p class="pesan-galat">Judul wajib diisi.</p>
+          </div>
+
+          <div class="form-kolom">
+            <label for="momen">Momen</label>
+
+            <input type="text" id="momen" name="kolom-momen" required />
+
+            <p class="pesan-galat">Momen wajib diisi.</p>
+          </div>
+
+          <div class="form-kolom">
+            <label for="pesan">Pesan</label>
+
+            <input type="text" id="pesan" name="kolom-pesan" required />
+
+            <p class="pesan-galat">Pesan wajib diisi.</p>
+          </div>
+
+          <button type="submit">Simpan</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>DIDAR MUKTAFA BILLAH · 25523220 · 2026</p>
+    </footer>
   </body>
 </html>
