@@ -32,6 +32,23 @@ Buka http://localhost:8000/profile.html
 | Kolom tahun           | `#momen`               | Tahun kenangan                 | `tahunKenangan`       |
 | Kolom pesan           | `#pesan`               | Cerita kenangan                | `pesanKenangan`       |
 
+## Bagian B — Membangun elemen dari data
+
+- `buatKartuProyek(proyek)` membuat satu elemen `li` untuk setiap objek proyek.
+- Isi kartu dimasukkan dengan `textContent`, sehingga data selalu diperlakukan sebagai teks.
+- `renderProyek(daftar)` mengosongkan container pada baris pertama sebelum menambahkan kartu baru.
+- Kartu ditampung dalam `DocumentFragment`, kemudian dimasukkan ke halaman dengan `append`.
+- `renderProyek(daftarProyek)` dipanggil saat halaman dibuka agar daftar langsung tampil tanpa perintah dari Console.
+
+### Hasil pemeriksaan Bagian B
+
+| Yang diperiksa | Hasil |
+| --- | --- |
+| Jumlah kartu | 4 kartu, sama dengan panjang `daftarProyek` |
+| Kartu teratas | `Profil Pribadi`, sama dengan data pertama |
+| Isi kartu | Ditampilkan sebagai teks melalui `textContent` |
+| Reload halaman | Tetap 4 kartu dan tidak ada duplikasi |
+
 ## Memeriksa variabel modul melalui Console
 
 Variabel modul tidak otomatis tersedia sebagai variabel global. Jalankan:
@@ -45,8 +62,9 @@ p9.formKenangan;
 p9.judulKenangan;
 p9.tahunKenangan;
 p9.pesanKenangan;
+p9.renderProyek(p9.daftarProyek);
 ```
 
 ## Deklarasi penggunaan AI
 
-Menggunakan Codex untuk membaca worksheet, , membuat pemetaan selector di `dom.js`, dan menguji bahwa setiap selector menemukan elemen yang benar
+Menggunakan Codex untuk membaca worksheet, membuat pemetaan selector di `dom.js`, serta membantu membuat dan menguji render daftar proyek dari data.

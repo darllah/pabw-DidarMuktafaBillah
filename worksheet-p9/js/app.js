@@ -75,23 +75,6 @@ document.querySelector("#caption-kenangan").textContent =
 document.querySelector("#proyek-pilihan").textContent =
   `Proyek pilihan: ${proyekSpesifik?.judul ?? "Belum dipilih"}`;
 
-const tampilkanProyek = () => {
-  const hasil = daftarProyek.filter((proyek) => {
-    return (
-      pilihanAktif === "semua" ||
-      proyek.selesai === (pilihanAktif === "selesai")
-    );
-  });
-  const item = hasil.map((proyek) => {
-    const elemen = document.createElement("li");
-    elemen.className = "list-group-item";
-    elemen.textContent = `${proyek.judul} · ${proyek.tahun} · ${proyek.kategori} · ${proyek.selesai ? "Selesai" : "Belum selesai"}`;
-    return elemen;
-  });
-  document.querySelector("#daftar-proyek").replaceChildren(...item);
-  document.querySelector("#ringkasan-proyek").textContent =
-    `${hasil.length} dari ${jumlahProyek} proyek ditampilkan; ${proyekSelesai.length} sudah selesai.`;
-};
 const tampilkanKenangan = () => {
   const baris = daftarKenangan.map((kenangan) => {
     const elemen = document.createElement("tr");
@@ -107,12 +90,7 @@ const tampilkanKenangan = () => {
   });
   document.querySelector("#daftar-kenangan").replaceChildren(...baris);
 };
-tampilkanProyek();
 tampilkanKenangan();
-document.querySelector("#filter-proyek").addEventListener("change", (event) => {
-  pilihanAktif = event.target.value;
-  tampilkanProyek();
-});
 document.querySelector("#tema").addEventListener("change", (event) => {
   document.documentElement.dataset.bsTheme = event.target.checked
     ? "dark"
