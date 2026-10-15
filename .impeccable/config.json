@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "worksheet-p9/profile.html"
+        ],
+        "createdAt": "2026-10-15T13:52:35.579Z",
+        "reason": "Codex verified in the rendered browser that Bootstrap h2, h3, and h5 utility classes provide a visible type hierarchy; the static detector does not resolve the external Bootstrap stylesheet."
+      }
+    ]
+  }
+}
