@@ -30,8 +30,7 @@ const renderProyek = (daftar) => {
   kartuProyek.forEach((kartu) => fragmen.append(kartu));
   daftarProyekElement.append(fragmen);
 
-  ringkasanProyek.textContent =
-    `${daftar.length} dari ${jumlahProyek} proyek ditampilkan; ${proyekSelesai.length} sudah selesai.`;
+  ringkasanProyek.textContent = `${daftar.length} dari ${jumlahProyek} proyek ditampilkan; ${proyekSelesai.length} sudah selesai.`;
 };
 
 renderProyek(daftarProyek);
