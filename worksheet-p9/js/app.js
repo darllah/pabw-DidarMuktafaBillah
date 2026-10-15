@@ -75,22 +75,6 @@ document.querySelector("#caption-kenangan").textContent =
 document.querySelector("#proyek-pilihan").textContent =
   `Proyek pilihan: ${proyekSpesifik?.judul ?? "Belum dipilih"}`;
 
-const tampilkanKenangan = () => {
-  const baris = daftarKenangan.map((kenangan) => {
-    const elemen = document.createElement("tr");
-    const judul = document.createElement("th");
-    judul.scope = "row";
-    judul.textContent = kenangan.judul;
-    const tahun = document.createElement("td");
-    tahun.textContent = kenangan.tahun;
-    const cerita = document.createElement("td");
-    cerita.textContent = kenangan.cerita;
-    elemen.append(judul, tahun, cerita);
-    return elemen;
-  });
-  document.querySelector("#daftar-kenangan").replaceChildren(...baris);
-};
-tampilkanKenangan();
 document.querySelector("#tema").addEventListener("change", (event) => {
   document.documentElement.dataset.bsTheme = event.target.checked
     ? "dark"
@@ -105,34 +89,6 @@ document.querySelector("#tema").addEventListener("change", (event) => {
     .querySelector(".tombol-tema")
     .classList.toggle("btn-outline-dark", !event.target.checked);
 });
-const formKenangan = document.querySelector("#form-kenangan");
-formKenangan.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const judul = document.querySelector("#judul");
-  const momen = document.querySelector("#momen");
-  const pesan = document.querySelector("#pesan");
-  const tahun = Number(momen.value);
-  judul.setCustomValidity(
-    judul.value.trim() === "" ? "Judul wajib diisi." : "",
-  );
-  pesan.setCustomValidity(
-    pesan.value.trim() === "" ? "Pesan wajib diisi." : "",
-  );
-  if (!formKenangan.reportValidity() || !Number.isInteger(tahun)) return;
-  daftarKenangan.push({
-    judul: judul.value.trim(),
-    tahun,
-    cerita: pesan.value.trim(),
-  });
-  tampilkanKenangan();
-  document.querySelector("#status-simpan").textContent =
-    `Kenangan “${judul.value.trim()}” ditambahkan untuk tahun ${tahun}.`;
-  formKenangan.reset();
-});
-formKenangan.addEventListener("input", (event) =>
-  event.target.setCustomValidity(""),
-);
-
 console.log("Lembar B —", {
   namaProfil,
   jumlahProyek,

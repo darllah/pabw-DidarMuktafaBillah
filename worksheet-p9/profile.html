@@ -49,14 +49,20 @@
 
     <main id="semua" class="container py-5 d-flex flex-column gap-5">
       <noscript>Aktifkan JavaScript untuk menampilkan data profil.</noscript>
-      <section class="card border-0 shadow-sm p-4" aria-labelledby="nama-profil">
+      <section
+        class="card border-0 shadow-sm p-4"
+        aria-labelledby="nama-profil"
+      >
         <h2 id="nama-profil" class="h3 text-primary"></h2>
         <p id="perkenalan"></p>
         <p id="bio-profil"></p>
         <h3 class="h5">Keahlian yang dipelajari</h3>
         <p id="keahlian" class="mb-0"></p>
       </section>
-      <section class="card border-0 shadow-sm p-4" aria-labelledby="judul-proyek">
+      <section
+        class="card border-0 shadow-sm p-4"
+        aria-labelledby="judul-proyek"
+      >
         <h2 id="judul-proyek" class="h3 text-primary">Proyek Saya</h2>
         <p class="form-label">Tampilkan proyek</p>
         <div
@@ -141,7 +147,7 @@
       <section id="masa-sekarang" class="card border-0 shadow-sm p-4">
         <h2 class="h3 fw-bold text-primary mb-4">Kenangan Sekarang</h2>
 
-        <form id="form-kenangan" class="needs-validation">
+        <form id="form-kenangan" class="needs-validation" novalidate>
           <div class="form-kolom mb-3">
             <label for="judul" class="form-label fw-semibold">Judul</label>
 
@@ -150,14 +156,24 @@
               id="judul"
               name="kolom-judul"
               class="form-control"
+              aria-describedby="galat-judul"
+              aria-invalid="false"
               required
             />
 
-            <p class="pesan-galat invalid-feedback">Judul wajib diisi.</p>
+            <p
+              id="galat-judul"
+              class="pesan-galat text-danger small mt-1 mb-0"
+              hidden
+            >
+              Isi judul kenangan.
+            </p>
           </div>
 
           <div class="form-kolom mb-3">
-            <label for="momen" class="form-label fw-semibold">Tahun momen</label>
+            <label for="momen" class="form-label fw-semibold"
+              >Tahun momen</label
+            >
 
             <input
               type="number"
@@ -167,10 +183,18 @@
               id="momen"
               name="kolom-momen"
               class="form-control"
+              aria-describedby="galat-momen"
+              aria-invalid="false"
               required
             />
 
-            <p class="pesan-galat invalid-feedback">Isi tahun antara 1900 dan 2100.</p>
+            <p
+              id="galat-momen"
+              class="pesan-galat text-danger small mt-1 mb-0"
+              hidden
+            >
+              Isi tahun antara 1900 dan 2100.
+            </p>
           </div>
 
           <div class="form-kolom mb-3">
@@ -181,14 +205,30 @@
               id="pesan"
               name="kolom-pesan"
               class="form-control"
+              aria-describedby="galat-pesan"
+              aria-invalid="false"
               required
             />
 
-            <p class="pesan-galat invalid-feedback">Pesan wajib diisi.</p>
+            <p
+              id="galat-pesan"
+              class="pesan-galat text-danger small mt-1 mb-0"
+              hidden
+            >
+              Isi cerita kenangan.
+            </p>
           </div>
 
-          <button type="submit" class="btn btn-primary px-4">Simpan</button>
-          <p class="form-text mt-3">Kenangan tambahan berlaku selama halaman ini terbuka.</p>
+          <button
+            type="submit"
+            id="simpan-kenangan"
+            class="btn btn-primary px-4"
+          >
+            Simpan
+          </button>
+          <p class="form-text mt-3">
+            Kenangan tambahan berlaku selama halaman ini terbuka.
+          </p>
           <p id="status-simpan" role="status" class="mb-0"></p>
         </form>
       </section>

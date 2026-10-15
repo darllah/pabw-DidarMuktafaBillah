@@ -42,12 +42,12 @@ Buka http://localhost:8000/profile.html
 
 ### Hasil pemeriksaan Bagian B
 
-| Yang diperiksa | Hasil |
-| --- | --- |
-| Jumlah kartu | 4 kartu, sama dengan panjang `daftarProyek` |
-| Kartu teratas | `Profil Pribadi`, sama dengan data pertama |
-| Isi kartu | Ditampilkan sebagai teks melalui `textContent` |
-| Reload halaman | Tetap 4 kartu dan tidak ada duplikasi |
+| Yang diperiksa | Hasil                                          |
+| -------------- | ---------------------------------------------- |
+| Jumlah kartu   | 4 kartu, sama dengan panjang `daftarProyek`    |
+| Kartu teratas  | `Profil Pribadi`, sama dengan data pertama     |
+| Isi kartu      | Ditampilkan sebagai teks melalui `textContent` |
+| Reload halaman | Tetap 4 kartu dan tidak ada duplikasi          |
 
 ## Bagian C — Satu listener untuk semua tombol
 
@@ -60,13 +60,32 @@ Buka http://localhost:8000/profile.html
 
 ### Hasil pemeriksaan Bagian C
 
-| Keadaan | Hasil |
+| Keadaan             | Hasil                                   |
+| ------------------- | --------------------------------------- |
+| Halaman baru dibuka | 4 proyek tampil dan tombol Semua aktif  |
+| Tombol Web          | 2 proyek kategori Web tampil            |
+| Tombol JavaScript   | 2 proyek kategori JS tampil             |
+| Tombol Desain       | 0 proyek dan pesan daftar kosong tampil |
+| Klik berulang       | Jumlah kartu tidak berlipat             |
+
+## Bagian D — Render dan validasi form
+
+- `renderKenangan(daftar)` menjadi satu tempat untuk menggambar ulang tabel kenangan.
+- Handler `submit` memanggil `preventDefault()` sebelum menjalankan validasi.
+- Judul dan pesan diperiksa setelah `trim()`, sehingga isi berupa spasi tetap tidak valid.
+- Tahun harus berupa bilangan bulat antara 1900 dan 2100.
+- Setiap kolom memiliki pesan perbaikan, `aria-invalid`, dan keadaan visualnya sendiri.
+- Pesan kesalahan menghilang segera setelah kolom diperbaiki.
+- Tombol Simpan dinonaktifkan setelah validasi gagal dan baru aktif ketika semua kolom valid.
+
+### Hasil pemeriksaan Bagian D
+
+| Keadaan | Hasil yang diharapkan |
 | --- | --- |
-| Halaman baru dibuka | 4 proyek tampil dan tombol Semua aktif |
-| Tombol Web | 2 proyek kategori Web tampil |
-| Tombol JavaScript | 2 proyek kategori JS tampil |
-| Tombol Desain | 0 proyek dan pesan daftar kosong tampil |
-| Klik berulang | Jumlah kartu tidak berlipat |
+| Form kosong dikirim | Halaman tidak reload dan tiga pesan perbaikan tampil |
+| Satu kolom diperbaiki | Pesan pada kolom tersebut langsung hilang |
+| Nilai hanya spasi | Tetap dinyatakan tidak valid |
+| Semua kolom valid | Tombol Simpan aktif dan data dapat ditambahkan |
 
 ## Memeriksa variabel modul melalui Console
 
@@ -86,4 +105,4 @@ p9.renderProyek(p9.daftarProyek);
 
 ## Deklarasi penggunaan AI
 
-Menggunakan Codex untuk membaca worksheet, membuat pemetaan selector di `dom.js`, serta membantu membuat dan menguji render daftar proyek dan event delegation pada filter kategori.
+Menggunakan Codex untuk membaca worksheet, membantu membuat dan menguji render daftar proyek, event delegation pada filter kategori, serta validasi form per kolom.
