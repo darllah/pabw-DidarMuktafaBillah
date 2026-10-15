@@ -49,6 +49,25 @@ Buka http://localhost:8000/profile.html
 | Isi kartu | Ditampilkan sebagai teks melalui `textContent` |
 | Reload halaman | Tetap 4 kartu dan tidak ada duplikasi |
 
+## Bagian C — Satu listener untuk semua tombol
+
+- Empat tombol kategori berada di dalam parent `#filter-proyek`.
+- Hanya parent tersebut yang menerima satu listener `click`.
+- `event.target.closest("button[data-category]")` menemukan tombol yang benar dari target klik.
+- Nilai `data-category` menentukan data yang diberikan ke `renderProyek`.
+- `tandaiTombolAktif` mengatur class `active` dan `aria-pressed` pada satu tombol saja.
+- Kategori Desain sengaja tidak memiliki proyek agar keadaan kosong dan pesannya dapat diperiksa.
+
+### Hasil pemeriksaan Bagian C
+
+| Keadaan | Hasil |
+| --- | --- |
+| Halaman baru dibuka | 4 proyek tampil dan tombol Semua aktif |
+| Tombol Web | 2 proyek kategori Web tampil |
+| Tombol JavaScript | 2 proyek kategori JS tampil |
+| Tombol Desain | 0 proyek dan pesan daftar kosong tampil |
+| Klik berulang | Jumlah kartu tidak berlipat |
+
 ## Memeriksa variabel modul melalui Console
 
 Variabel modul tidak otomatis tersedia sebagai variabel global. Jalankan:
@@ -67,4 +86,4 @@ p9.renderProyek(p9.daftarProyek);
 
 ## Deklarasi penggunaan AI
 
-Menggunakan Codex untuk membaca worksheet, membuat pemetaan selector di `dom.js`, serta membantu membuat dan menguji render daftar proyek dari data.
+Menggunakan Codex untuk membaca worksheet, membuat pemetaan selector di `dom.js`, serta membantu membuat dan menguji render daftar proyek dan event delegation pada filter kategori.

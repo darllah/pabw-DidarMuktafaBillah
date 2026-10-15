@@ -58,12 +58,46 @@
       </section>
       <section class="card border-0 shadow-sm p-4" aria-labelledby="judul-proyek">
         <h2 id="judul-proyek" class="h3 text-primary">Proyek Saya</h2>
-        <label for="filter-proyek" class="form-label">Tampilkan proyek</label>
-        <select id="filter-proyek" class="form-select mb-3">
-          <option value="semua">Semua</option>
-          <option value="selesai">Sudah selesai</option>
-          <option value="belum">Belum selesai</option>
-        </select>
+        <p class="form-label">Tampilkan proyek</p>
+        <div
+          id="filter-proyek"
+          class="d-flex flex-wrap gap-2 mb-3"
+          role="group"
+          aria-label="Filter proyek berdasarkan kategori"
+        >
+          <button
+            type="button"
+            class="btn btn-outline-primary active"
+            data-category="semua"
+            aria-pressed="true"
+          >
+            Semua
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            data-category="Web"
+            aria-pressed="false"
+          >
+            Web
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            data-category="JS"
+            aria-pressed="false"
+          >
+            JavaScript
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            data-category="Desain"
+            aria-pressed="false"
+          >
+            Desain
+          </button>
+        </div>
         <p id="ringkasan-proyek" role="status"></p>
         <ul id="daftar-proyek" class="list-group mb-3"></ul>
         <p id="pesan-daftar-kosong" class="text-body-secondary" hidden>

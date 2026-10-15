@@ -30,8 +30,30 @@ const renderProyek = (daftar) => {
   kartuProyek.forEach((kartu) => fragmen.append(kartu));
   daftarProyekElement.append(fragmen);
 
+  pesanDaftarKosong.hidden = daftar.length !== 0;
   ringkasanProyek.textContent = `${daftar.length} dari ${jumlahProyek} proyek ditampilkan; ${proyekSelesai.length} sudah selesai.`;
 };
+
+const tandaiTombolAktif = (tombolAktif) => {
+  barisFilterProyek.querySelectorAll("button").forEach((tombol) => {
+    const aktif = tombol === tombolAktif;
+    tombol.classList.toggle("active", aktif);
+    tombol.setAttribute("aria-pressed", aktif.toString());
+  });
+};
+
+barisFilterProyek.addEventListener("click", (event) => {
+  const tombol = event.target.closest("button[data-category]");
+  if (!tombol || !barisFilterProyek.contains(tombol)) return;
+
+  const kategori = tombol.dataset.category;
+  const proyekTerpilih = daftarProyek.filter(
+    (proyek) => kategori === "semua" || proyek.kategori === kategori,
+  );
+
+  renderProyek(proyekTerpilih);
+  tandaiTombolAktif(tombol);
+});
 
 renderProyek(daftarProyek);
 
@@ -48,5 +70,6 @@ export {
   profil,
   renderProyek,
   ringkasanProyek,
+  tandaiTombolAktif,
   tahunKenangan,
 };
