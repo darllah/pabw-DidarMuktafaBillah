@@ -80,12 +80,37 @@ Buka http://localhost:8000/profile.html
 
 ### Hasil pemeriksaan Bagian D
 
-| Keadaan | Hasil yang diharapkan |
-| --- | --- |
-| Form kosong dikirim | Halaman tidak reload dan tiga pesan perbaikan tampil |
-| Satu kolom diperbaiki | Pesan pada kolom tersebut langsung hilang |
-| Nilai hanya spasi | Tetap dinyatakan tidak valid |
-| Semua kolom valid | Tombol Simpan aktif dan data dapat ditambahkan |
+| Keadaan               | Hasil yang diharapkan                                |
+| --------------------- | ---------------------------------------------------- |
+| Form kosong dikirim   | Halaman tidak reload dan tiga pesan perbaikan tampil |
+| Satu kolom diperbaiki | Pesan pada kolom tersebut langsung hilang            |
+| Nilai hanya spasi     | Tetap dinyatakan tidak valid                         |
+| Semua kolom valid     | Tombol Simpan aktif dan data dapat ditambahkan       |
+
+## Bagian E — Membaca gejala sebelum menebak
+
+- `pilihElemen(selector)` menghentikan script dengan pesan yang menyebut selector ketika elemen tidak ditemukan.
+- Handler filter diberi nama `tanganiKlikFilter`, sehingga mudah dikenali pada panel Event Listeners.
+- Listener filter dipasang tepat satu kali pada parent dan berada di luar `renderProyek`.
+- `renderProyek` selalu menangani daftar kosong dengan menampilkan `#pesan-daftar-kosong`.
+
+### Tiga kasus yang diperiksa
+
+| Gejala yang diuji                                     | Penyebab                                         | Baris yang menangani                                                |
+| ----------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------------------------- |
+| Selector menghasilkan `null`                          | ID atau class berbeda dari elemen di halaman     | `pilihElemen` memeriksa hasil selector dan memberi pesan yang jelas |
+| Satu klik berisiko menjalankan aksi lebih dari sekali | Listener dipasang kembali di dalam fungsi render | `addEventListener` hanya dipanggil sekali di luar `renderProyek`    |
+| Filter Desain menghasilkan daftar kosong              | Tidak ada proyek dengan kategori `Desain`        | `renderProyek` menampilkan pesan keadaan kosong                     |
+
+### Pemeriksaan melalui DevTools
+
+1. Pilih elemen `#filter-proyek` pada panel Elements.
+2. Buka Event Listeners dan periksa event `click`.
+3. Pastikan hanya ada satu handler bernama `tanganiKlikFilter`.
+4. Jalankan `monitorEvents(document.querySelector("#filter-proyek"), "click")` di Console.
+5. Klik satu tombol dan pastikan hanya satu event tercetak.
+
+Bukti visual dan petunjuk pengambilannya disimpan dalam folder `evidence/`.
 
 ## Memeriksa variabel modul melalui Console
 
@@ -105,4 +130,4 @@ p9.renderProyek(p9.daftarProyek);
 
 ## Deklarasi penggunaan AI
 
-Menggunakan Codex untuk membaca worksheet, membantu membuat dan menguji render daftar proyek, event delegation pada filter kategori, serta validasi form per kolom.
+Menggunakan Codex untuk membaca worksheet, membantu membuat dan menguji render daftar proyek, event delegation pada filter kategori, validasi form per kolom, serta pemeriksaan kasus selector, listener ganda, dan daftar kosong.

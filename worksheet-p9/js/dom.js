@@ -6,20 +6,30 @@ import {
   proyekSelesai,
 } from "./app.js";
 
-const daftarProyekElement = document.querySelector("#daftar-proyek");
-const barisFilterProyek = document.querySelector("#filter-proyek");
-const pesanDaftarKosong = document.querySelector("#pesan-daftar-kosong");
-const ringkasanProyek = document.querySelector("#ringkasan-proyek");
-const daftarKenanganElement = document.querySelector("#daftar-kenangan");
-const formKenangan = document.querySelector("#form-kenangan");
-const judulKenangan = document.querySelector("#judul");
-const tahunKenangan = document.querySelector("#momen");
-const pesanKenangan = document.querySelector("#pesan");
-const galatJudul = document.querySelector("#galat-judul");
-const galatTahun = document.querySelector("#galat-momen");
-const galatPesan = document.querySelector("#galat-pesan");
-const tombolSimpan = document.querySelector("#simpan-kenangan");
-const statusSimpan = document.querySelector("#status-simpan");
+const pilihElemen = (selector, root = document) => {
+  const elemen = root.querySelector(selector);
+  if (!elemen) {
+    throw new Error(
+      `Elemen "${selector}" tidak ditemukan. Periksa ejaan selector dan urutan script.`,
+    );
+  }
+  return elemen;
+};
+
+const daftarProyekElement = pilihElemen("#daftar-proyek");
+const barisFilterProyek = pilihElemen("#filter-proyek");
+const pesanDaftarKosong = pilihElemen("#pesan-daftar-kosong");
+const ringkasanProyek = pilihElemen("#ringkasan-proyek");
+const daftarKenanganElement = pilihElemen("#daftar-kenangan");
+const formKenangan = pilihElemen("#form-kenangan");
+const judulKenangan = pilihElemen("#judul");
+const tahunKenangan = pilihElemen("#momen");
+const pesanKenangan = pilihElemen("#pesan");
+const galatJudul = pilihElemen("#galat-judul");
+const galatTahun = pilihElemen("#galat-momen");
+const galatPesan = pilihElemen("#galat-pesan");
+const tombolSimpan = pilihElemen("#simpan-kenangan");
+const statusSimpan = pilihElemen("#status-simpan");
 
 const buatKartuProyek = (proyek) => {
   const kartu = document.createElement("li");
@@ -48,7 +58,8 @@ const tandaiTombolAktif = (tombolAktif) => {
   });
 };
 
-barisFilterProyek.addEventListener("click", (event) => {
+const tanganiKlikFilter = (event) => {
+  if (!(event.target instanceof Element)) return;
   const tombol = event.target.closest("button[data-category]");
   if (!tombol || !barisFilterProyek.contains(tombol)) return;
 
@@ -59,7 +70,9 @@ barisFilterProyek.addEventListener("click", (event) => {
 
   renderProyek(proyekTerpilih);
   tandaiTombolAktif(tombol);
-});
+};
+
+barisFilterProyek.addEventListener("click", tanganiKlikFilter);
 
 const buatBarisKenangan = (kenangan) => {
   const baris = document.createElement("tr");
@@ -123,7 +136,7 @@ const perbaruiTombolSimpan = () => {
   return formValid;
 };
 
-formKenangan.addEventListener("input", (event) => {
+const tanganiInputForm = (event) => {
   const konfigurasi = konfigurasiKolom.find(
     ({ kolom }) => kolom === event.target,
   );
@@ -132,9 +145,9 @@ formKenangan.addEventListener("input", (event) => {
   validasiKolom(konfigurasi);
   perbaruiTombolSimpan();
   statusSimpan.textContent = "";
-});
+};
 
-formKenangan.addEventListener("submit", (event) => {
+const tanganiSubmitForm = (event) => {
   event.preventDefault();
 
   const hasilValidasi = konfigurasiKolom.map(validasiKolom);
@@ -166,7 +179,10 @@ formKenangan.addEventListener("submit", (event) => {
     galat.hidden = true;
   });
   tombolSimpan.disabled = true;
-});
+};
+
+formKenangan.addEventListener("input", tanganiInputForm);
+formKenangan.addEventListener("submit", tanganiSubmitForm);
 
 renderProyek(daftarProyek);
 renderKenangan(daftarKenangan);
@@ -184,11 +200,15 @@ export {
   pesanDaftarKosong,
   pesanKenangan,
   perbaruiTombolSimpan,
+  pilihElemen,
   profil,
   renderKenangan,
   renderProyek,
   ringkasanProyek,
   tandaiTombolAktif,
+  tanganiInputForm,
+  tanganiKlikFilter,
+  tanganiSubmitForm,
   tahunKenangan,
   tombolSimpan,
   validasiKolom,
