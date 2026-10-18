@@ -23,6 +23,14 @@ Pemeriksaan: URL yang mengembalikan 404 menampilkan `Gagal memuat catatan: statu
 
 Contoh akses yang valid: `data[0].userId`, `data[0].id`, `data[0].title`, dan `data[0].body`. Respons ini tidak mempunyai kunci boolean atau `null`, sehingga kolom tersebut ditandai tidak tersedia di worksheet, bukan dibuat-buat.
 
+## Bagian D — Menampilkan data API
+
+`js/api.js` tetap khusus mengambil dan memeriksa data; `js/app.js` memakai hasilnya untuk membuat satu `<article>` per catatan di `#daftar-catatan-api`. Judul dan isi jaringan dimasukkan dengan `textContent`, bukan `innerHTML`. `renderCatatan()` mengosongkan container sebelum mengisi ulang, sehingga tombol **Coba lagi** tidak menggandakan kartu.
+
+Empat keadaan ditangani pada halaman: **memuat** menampilkan “Mengambil data dari API…”, **berhasil** menampilkan jumlah catatan beserta kartunya, **gagal** menampilkan pesan galat, dan **kosong** menampilkan “Belum ada catatan dari API.” Tombol coba lagi dinonaktifkan selama permintaan berjalan. Fungsi `renderCatatan` diekspor agar keadaan kosong dapat dicoba dari Console dengan `const { renderCatatan } = await import("./js/app.js"); renderCatatan([]);`.
+
+Pemeriksaan browser: respons asli menampilkan 4 artikel; uji sementara `?userId=0` menampilkan keadaan kosong; domain `.invalid` menampilkan kegagalan; dan klik **Coba lagi** setelah URL dipulihkan tetap menampilkan 4 artikel. Alamat API di `js/api.js` sudah dikembalikan ke nilai asli.
+
 ## Dasar dari Pertemuan 9
 
 Nama: Didar Muktafa Billah
@@ -159,4 +167,4 @@ Menggunakan Codex untuk membaca worksheet, membantu membuat dan menguji render d
 
 ## Deklarasi penggunaan AI P10
 
-Pada bagian A, Codex membantu menyalin dasar P9, membuat `js/api.js`, menguji respons API melalui Console dan Network, serta mengisi tabel worksheet. Pada bagian B, Codex membantu menambahkan `try/catch`, status dan tombol coba lagi, menguji kasus gagal, serta mengisi worksheet. Pada bagian C, Codex membantu memeriksa bentuk respons, memberi contoh `JSON.stringify`, dan mengisi peta data worksheet. Topik dan isi profil berasal dari pekerjaan P9 saya.
+Pada bagian A, Codex membantu menyalin dasar P9, membuat `js/api.js`, menguji respons API melalui Console dan Network, serta mengisi tabel worksheet. Pada bagian B, Codex membantu menambahkan `try/catch`, status dan tombol coba lagi, menguji kasus gagal, serta mengisi worksheet. Pada bagian C, Codex membantu memeriksa bentuk respons, memberi contoh `JSON.stringify`, dan mengisi peta data worksheet. Pada bagian D, Codex membantu membuat kartu data API, empat keadaan antarmuka, menguji hasilnya, dan mengisi worksheet. Topik dan isi profil berasal dari pekerjaan P9 saya.

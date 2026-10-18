@@ -118,26 +118,62 @@ console.log(
 );
 
 const statusApi = document.querySelector("#status-api");
+const daftarCatatanApi = document.querySelector("#daftar-catatan-api");
+const tombolUlangApi = document.querySelector("#ulang-api");
+
+function renderCatatan(daftar) {
+  daftarCatatanApi.textContent = "";
+  if (daftar.length === 0) {
+    statusApi.textContent = "Belum ada catatan dari API.";
+    return;
+  }
+
+  daftar.forEach((catatan) => {
+    const kartu = document.createElement("article");
+    kartu.className = "list-group-item";
+
+    const judul = document.createElement("h3");
+    judul.className = "h5";
+    judul.textContent = catatan.title;
+
+    const isi = document.createElement("p");
+    isi.className = "mb-0 text-body-secondary";
+    isi.textContent = catatan.body;
+
+    kartu.append(judul, isi);
+    daftarCatatanApi.append(kartu);
+  });
+}
 
 async function muatStatusApi() {
+  renderCatatan([]);
   statusApi.textContent = "Mengambil data dari API…";
+  tombolUlangApi.disabled = true;
 
   try {
     const data = await fetchNews();
+    if (!Array.isArray(data)) {
+      throw new Error("format data bukan daftar catatan");
+    }
     console.log("Bentuk data API:", data);
     if (data.length > 0) {
       const contohTeksJson = JSON.stringify(data[0]);
       console.log("Contoh JSON.stringify:", contohTeksJson);
       console.log("Tipe hasil stringify:", typeof contohTeksJson);
     }
-    statusApi.textContent = `${data.length} catatan berhasil dimuat dari API.`;
+    renderCatatan(data);
+    if (data.length > 0) {
+      statusApi.textContent = `${data.length} catatan berhasil dimuat dari API.`;
+    }
   } catch (error) {
     statusApi.textContent = `Gagal memuat catatan: ${error.message}`;
+  } finally {
+    tombolUlangApi.disabled = false;
   }
 }
 
 muatStatusApi();
-document.querySelector("#ulang-api").addEventListener("click", muatStatusApi);
+tombolUlangApi.addEventListener("click", muatStatusApi);
 
 export {
   profil,
@@ -155,5 +191,6 @@ export {
   salinanProfil,
   proyekTerurut,
   pilihanAktif,
+  renderCatatan,
   muatStatusApi,
 };
