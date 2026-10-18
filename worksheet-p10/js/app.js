@@ -1,3 +1,5 @@
+import { fetchNews } from "./api.js";
+
 const namaProfil = "Didar Muktafa Billah";
 const nimProfil = "25523220";
 const tahunProfil = 2026;
@@ -115,6 +117,22 @@ console.log(
   daftarProyek.map((proyek) => proyek.judul),
 );
 
+const statusApi = document.querySelector("#status-api");
+
+async function muatStatusApi() {
+  statusApi.textContent = "Mengambil data dari API…";
+
+  try {
+    const data = await fetchNews();
+    statusApi.textContent = `${data.length} catatan berhasil dimuat dari API.`;
+  } catch (error) {
+    statusApi.textContent = `Gagal memuat catatan: ${error.message}`;
+  }
+}
+
+muatStatusApi();
+document.querySelector("#ulang-api").addEventListener("click", muatStatusApi);
+
 export {
   profil,
   namaProfil,
@@ -131,4 +149,5 @@ export {
   salinanProfil,
   proyekTerurut,
   pilihanAktif,
+  muatStatusApi,
 };

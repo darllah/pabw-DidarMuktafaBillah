@@ -2,14 +2,20 @@
 
 ## Bagian A — Panggilan API pertama
 
-Pekerjaan Pertemuan 9 disalin sebagai dasar. `js/api.js` menyimpan satu alamat API publik JSONPlaceholder dan mengekspor fungsi `load()`. Fungsi ini menampilkan `response.status` serta `response.ok`, memeriksa status sebelum membaca JSON, lalu mengembalikan datanya. Untuk mencoba dari Console pada halaman yang disajikan lewat server lokal, jalankan:
+Pekerjaan Pertemuan 9 disalin sebagai dasar. `js/api.js` menyimpan satu alamat API publik JSONPlaceholder. Pada bagian A, fungsi `load()` menampilkan `response.status` serta `response.ok`, memeriksa status sebelum membaca JSON, lalu mengembalikan datanya. Setelah bagian B, nama ekspor yang dipakai adalah `fetchNews()`. Untuk mencoba dari Console pada halaman yang disajikan lewat server lokal, jalankan:
 
 ```js
-const { load } = await import("./js/api.js");
-await load();
+const { fetchNews } = await import("./js/api.js");
+await fetchNews();
 ```
 
 API: `https://jsonplaceholder.typicode.com/posts?_limit=4` (tanpa kunci akses). Pada pemeriksaan bagian A, respons berstatus `200`, `response.ok` bernilai `true`, dan `Content-Type` adalah `application/json; charset=utf-8`.
+
+## Bagian B — async/await dan penanganan galat
+
+`fetchNews()` membungkus `fetch`, pemeriksaan `response.ok`, dan pembacaan JSON dalam satu `try/catch`. Kesalahan dicatat lalu dilempar kembali agar pemanggil di `app.js` menampilkan pesannya pada `#status-api`. Tombol **Coba lagi** memanggil ulang fungsi tanpa memuat ulang halaman. Saat berhasil, halaman menampilkan jumlah catatan yang diterima. Render kartu dari data jaringan dikerjakan pada bagian D.
+
+Pemeriksaan: URL yang mengembalikan 404 menampilkan `Gagal memuat catatan: status 404`; domain `.invalid` mensimulasikan koneksi yang tidak tersedia dan menampilkan `Gagal memuat catatan: Failed to fetch`. Setelah URL asli dikembalikan, empat catatan kembali terdeteksi. Mode Offline di DevTools juga dicoba, tetapi saat halaman dimuat ulang seluruh halaman lokal ikut gagal dibuka; bukti pesan dalam halaman untuk kasus jaringan berasal dari uji domain `.invalid`.
 
 ## Dasar dari Pertemuan 9
 
@@ -147,4 +153,4 @@ Menggunakan Codex untuk membaca worksheet, membantu membuat dan menguji render d
 
 ## Deklarasi penggunaan AI P10
 
-Pada bagian A, Codex membantu menyalin dasar P9, membuat `js/api.js`, menguji respons API melalui Console dan Network, serta mengisi tabel worksheet. Topik dan isi profil berasal dari pekerjaan P9 saya.
+Pada bagian A, Codex membantu menyalin dasar P9, membuat `js/api.js`, menguji respons API melalui Console dan Network, serta mengisi tabel worksheet. Pada bagian B, Codex membantu menambahkan `try/catch`, status dan tombol coba lagi, menguji kasus gagal, serta mengisi worksheet. Topik dan isi profil berasal dari pekerjaan P9 saya.
