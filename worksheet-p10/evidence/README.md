@@ -13,3 +13,12 @@ Screenshot Event Listeners perlu diambil langsung melalui Chrome DevTools:
 2. Inspect elemen `#filter-proyek`.
 3. Buka panel Event Listeners, lalu bagian `click`.
 4. Ambil screenshot ketika handler `tanganiKlikFilter` terlihat satu kali.
+
+## Bukti Bagian F P10
+
+- `f-success.jpg`: empat catatan API tampil.
+- `f-failure.jpg`: domain `.invalid` menghasilkan pesan gagal pada halaman.
+- `f-empty.jpg`: respons `?userId=0` menghasilkan pesan daftar kosong.
+- `f-loading.jpg`: jeda sementara pada pemanggilan API memperlihatkan status memuat dan tombol coba lagi nonaktif.
+
+Perubahan URL dan jeda hanya untuk pengujian; kode yang dikumpulkan memakai URL asli tanpa jeda.

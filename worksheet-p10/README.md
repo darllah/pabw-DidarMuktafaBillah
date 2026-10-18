@@ -39,6 +39,12 @@ Status 404 tetap menghasilkan objek `Response`, jadi `fetchNews()` memeriksa `re
 
 Uji bagian E dilakukan sementara, lalu URL asli dipulihkan: path tidak ada menghasilkan pesan `status 404`, halaman HTML lokal menghasilkan pesan `respons API bukan JSON`, dan respons `?userId=0` menghasilkan keadaan kosong. Kasus `await` di fungsi biasa diperiksa melalui uji sintaks terpisah, bukan dimasukkan ke kode halaman yang dikumpulkan.
 
+## Bagian F — Pemeriksaan akhir
+
+Empat keadaan antarmuka memiliki tangkapan layar di `evidence/`: `f-success.jpg`, `f-failure.jpg`, `f-empty.jpg`, dan `f-loading.jpg`. Keadaan berhasil menampilkan empat kartu. Keadaan gagal diuji dengan domain `.invalid`; keadaan kosong diuji dengan respons `?userId=0`. Untuk merekam keadaan memuat, pemanggilan API diberi jeda sementara. Semua perubahan uji telah dipulihkan; `js/api.js` kembali memakai URL asli.
+
+Pada pemuatan normal, Console tidak mencatat galat dan tombol **Coba lagi** bekerja. Checklist, penilaian diri sementara, dan exit ticket diisi dalam `WORKSHEET-P10.docx`. Pernyataan orisinalitas pribadi dan tanda tangan belum saya isi; keduanya perlu dikonfirmasi oleh pemilik tugas. Nilai `90/100` di worksheet adalah perkiraan, bukan penilaian dosen.
+
 ## Dasar dari Pertemuan 9
 
 Nama: Didar Muktafa Billah
@@ -175,4 +181,4 @@ Menggunakan Codex untuk membaca worksheet, membantu membuat dan menguji render d
 
 ## Deklarasi penggunaan AI P10
 
-Pada bagian A, Codex membantu menyalin dasar P9, membuat `js/api.js`, menguji respons API melalui Console dan Network, serta mengisi tabel worksheet. Pada bagian B, Codex membantu menambahkan `try/catch`, status dan tombol coba lagi, menguji kasus gagal, serta mengisi worksheet. Pada bagian C, Codex membantu memeriksa bentuk respons, memberi contoh `JSON.stringify`, dan mengisi peta data worksheet. Pada bagian D, Codex membantu membuat kartu data API, empat keadaan antarmuka, menguji hasilnya, dan mengisi worksheet. Pada bagian E, Codex membantu memeriksa kasus 404, respons bukan JSON, `await` di luar `async`, keadaan kosong, dan mengisi worksheet. Topik dan isi profil berasal dari pekerjaan P9 saya.
+Pada bagian A, Codex membantu menyalin dasar P9, membuat `js/api.js`, menguji respons API melalui Console dan Network, serta mengisi tabel worksheet. Pada bagian B, Codex membantu menambahkan `try/catch`, status dan tombol coba lagi, menguji kasus gagal, serta mengisi worksheet. Pada bagian C, Codex membantu memeriksa bentuk respons, memberi contoh `JSON.stringify`, dan mengisi peta data worksheet. Pada bagian D, Codex membantu membuat kartu data API, empat keadaan antarmuka, menguji hasilnya, dan mengisi worksheet. Pada bagian E, Codex membantu memeriksa kasus 404, respons bukan JSON, `await` di luar `async`, keadaan kosong, dan mengisi worksheet. Pada bagian F, Codex membantu menguji dan mengambil bukti empat keadaan, mengisi checklist, menyusun penilaian diri sementara, serta menjawab exit ticket. Topik dan isi profil berasal dari pekerjaan P9 saya.
