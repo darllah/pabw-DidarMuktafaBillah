@@ -124,6 +124,12 @@ async function muatStatusApi() {
 
   try {
     const data = await fetchNews();
+    console.log("Bentuk data API:", data);
+    if (data.length > 0) {
+      const contohTeksJson = JSON.stringify(data[0]);
+      console.log("Contoh JSON.stringify:", contohTeksJson);
+      console.log("Tipe hasil stringify:", typeof contohTeksJson);
+    }
     statusApi.textContent = `${data.length} catatan berhasil dimuat dari API.`;
   } catch (error) {
     statusApi.textContent = `Gagal memuat catatan: ${error.message}`;
