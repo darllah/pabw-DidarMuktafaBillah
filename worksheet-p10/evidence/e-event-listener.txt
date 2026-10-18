@@ -1,0 +1,14 @@
+Pemeriksaan listener filter Bagian E
+
+Target parent: #filter-proyek
+Nama handler: tanganiKlikFilter
+Lokasi pemasangan: js/dom.js, di luar fungsi renderProyek
+Jumlah pemanggilan addEventListener untuk parent filter: 1
+
+Baris yang diperiksa:
+barisFilterProyek.addEventListener("click", tanganiKlikFilter);
+
+Hasil uji browser:
+- Satu klik tombol Web menghasilkan 2 kartu.
+- Klik tombol Desain menghasilkan 0 kartu dan menampilkan pesan kosong.
+- Console tidak menampilkan error atau warning.
