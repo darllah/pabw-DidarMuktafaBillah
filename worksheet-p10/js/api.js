@@ -9,6 +9,11 @@ export async function fetchNews() {
       throw new Error("status " + response.status);
     }
 
+    const contentType = response.headers.get("Content-Type") ?? "";
+    if (!contentType.toLowerCase().includes("json")) {
+      throw new Error("respons API bukan JSON");
+    }
+
     const data = await response.json();
     return data;
   } catch (error) {
